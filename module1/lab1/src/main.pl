@@ -1,3 +1,5 @@
+%---  База знаний (набор предикатов, факты)
+
 %-  линия Аудиторе
 parent("Dominico Auditore", "Renato Auditore").
 parent("Renato Auditore", "Giovanni's father Auditore").
@@ -7,7 +9,6 @@ parent("Maria de'Mozzi da Firenze", "Ezio Auditore da Firenze").
 parent("Ezio Auditore da Firenze", "Flavia Auditore").
 parent("Sofia Sartor", "Flavia Auditore").
 parent("Flavia Auditore", "William's Father Miles").
-parent("William's Father Miles", "William Miles").
 
 %-  линия Кенуэй
 parent("Linette Hopkins", "Edward Kenway").
@@ -17,9 +18,10 @@ parent("Tessa Stephenson-Oakley", "Haytham E. Kenway").
 parent("Haytham E. Kenway", "Ratonhnhaké:ton Connor Kenway").
 parent("Kanieht:io", "Ratonhnhaké:ton Connor Kenway").
 parent("Ratonhnhaké:ton Connor Kenway", "William's Mother Miles").
+
+%-  линии Аудиторе + Кенуэй
+parent("William's Father Miles", "William Miles").
 parent("William's Mother Miles", "William Miles").
-parent("William Miles", "Subject 17 Desmond Miles").
-parent("Mother of Desmond Miles", "Subject 17 Desmond Miles").
 
 %-  линия Альтаира
 parent("Umar Ibn-La'Ahad", "Altaïr Ibn-La'Ahad").
@@ -29,6 +31,10 @@ parent("Maria Thorpe", "Sef Ibn-La'Ahad").
 parent("Sef Ibn-La'Ahad", "Sef's Daughter (1) Ibn-La'Ahad").
 parent("Sef's wife (Ibn-La'Ahad)", "Sef's Daughter (1) Ibn-La'Ahad").
 parent("Sef's Daughter (1) Ibn-La'Ahad", "Mother of Desmond Miles").
+
+%-  линии Аудиторе + Кенуэй + Альтаира
+parent("William Miles", "Subject 17 Desmond Miles").
+parent("Mother of Desmond Miles", "Subject 17 Desmond Miles").
 
 %-  мужчины
 man("Dominico Auditore").
@@ -62,6 +68,11 @@ woman("Sef's wife (Ibn-La'Ahad)").
 woman("Sef's Daughter (1) Ibn-La'Ahad").
 woman("Mother of Desmond Miles").
 
+%-  навык
+mage("Dominico Auditore").
+pirate("Bernard Kenway").
+assassin("Umar Ibn-La'Ahad").
+
 %-  супруги
 spouse("Giovanni Auditore da Firenze", "Maria de'Mozzi da Firenze").
 spouse("Ezio Auditore da Firenze", "Sofia Sartor").
@@ -74,19 +85,17 @@ spouse("Umar Ibn-La'Ahad", "Maud").
 spouse("Maria Thorpe", "Altaïr Ibn-La'Ahad").
 spouse("Sef Ibn-La'Ahad", "Sef's wife (Ibn-La'Ahad)").
 
-spouse(X, Y) :- spouse(Y, X), X \= Y.
+%---  правила
 
-%-  ярлыки
-killer("Dominico Auditore").
-pirate("Bernard Kenway").
-rat("Umar Ibn-La'Ahad").
+spouse(X, Y)        :- spouse(Y, X), X \= Y.
 
+son(X, Y)           :- parent(Y, X), !, man(X).
+daughter(X, Y)      :- parent(Y, X), !, woman(X).
+mom(X, Y)           :- parent(X, Y), woman(X).
+dad(X, Y)           :- parent(X, Y), man(X).
+grandfather(X, Y)   :- parent(Z, Y), parent(X, Z), man(X).
+grandmother(X, Y)   :- parent(Z, Y), parent(X, Z), woman(X).
 
-son(X, Y) :- parent(Y, X), !, man(X).
-daughter(X, Y) :- parent(Y, X), !, woman(X).
-grandfather(X, Y) :- parent(Z, Y), parent(X, Z), man(X).
-grandmother(X, Y) :- parent(Z, Y), parent(X, Z), woman(X).
-
-isKiller(X) :- killer(X); parent(Y, X), isKiller(Y).
-isPirate(X) :- pirate(X); parent(Y, X), isPirate(Y).
-isRat(X) :- rat(X); parent(Y, X), isRat(Y).
+isMage(X)           :- mage(X); parent(Y, X), isMage(Y).
+isPirate(X)         :- pirate(X); parent(Y, X), isPirate(Y).
+isAssassin(X)       :- assassin(X); parent(Y, X), isAssassin(Y).
