@@ -1,0 +1,815 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/indianmax/ontologies/2023/8/untitled-ontology-7"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/indianmax/ontologies/2023/8/untitled-ontology-7">
+    <Prefix name="" IRI="http://www.semanticweb.org/indianmax/ontologies/2023/8/untitled-ontology-7"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#Assassin"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dad"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Daughter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Grandfather"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Grandmother"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mom"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pirate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Son"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#beAncestorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#beDescendantOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#childOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#parent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#spouse"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#man"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#woman"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Bernard_Kenway"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Dominico_Auditore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Edward_Kenway"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ezio_Auditore_da_Firenze"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Flavia_Auditore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Giovanni_Auditore_da_Firenze"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Haytham_E._Kenway"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Linette_Hopkins"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Maria_Thorpe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Maud"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mother_of_Desmond_Miles"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Renato_Auditore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sofia_Sartor"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Subject_17_Desmond_Miles"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tessa_Stephenson-Oakley"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#William_Miles"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Altaïr_Ibn-La&apos;Ahad"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Giovanni&apos;s_father_Auditore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kanieht:io"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Maria_de&apos;Mozzi_da_Firenze"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ratonhnhaké:ton_Connor_Kenway"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sef&apos;s_Daughter_(1)_Ibn-La&apos;Ahad"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sef&apos;s_wife_(Ibn-La&apos;Ahad)"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sef_Ibn-La&apos;Ahad"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Umar_Ibn-La&apos;Ahad"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#William&apos;s_Father_Miles"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#William&apos;s_Mother_Miles"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Assassin"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#beDescendantOf"/>
+            <Class IRI="#Assassin"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Dad"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#parent"/>
+                <Class abbreviatedIRI="owl:Thing"/>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#man"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Daughter"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#childOf"/>
+                <Class abbreviatedIRI="owl:Thing"/>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#woman"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Grandfather"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#parent"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#parent"/>
+                    <Class abbreviatedIRI="owl:Thing"/>
+                </ObjectSomeValuesFrom>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#man"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Grandmother"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#parent"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="#parent"/>
+                    <Class abbreviatedIRI="owl:Thing"/>
+                </ObjectSomeValuesFrom>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#woman"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Mage"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#beDescendantOf"/>
+            <Class IRI="#Mage"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Mom"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#parent"/>
+                <Class abbreviatedIRI="owl:Thing"/>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#woman"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Pirate"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#beDescendantOf"/>
+            <Class IRI="#Pirate"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Son"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#childOf"/>
+                <Class abbreviatedIRI="owl:Thing"/>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#man"/>
+                <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Grandfather"/>
+        <Class IRI="#Dad"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Grandmother"/>
+        <Class IRI="#Mom"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Dad"/>
+        <Class IRI="#Mom"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Daughter"/>
+        <Class IRI="#Son"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Grandfather"/>
+        <Class IRI="#Grandmother"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#Pirate"/>
+        <NamedIndividual IRI="#Bernard_Kenway"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Bernard_Kenway"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Mage"/>
+        <NamedIndividual IRI="#Dominico_Auditore"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Dominico_Auditore"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Edward_Kenway"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Ezio_Auditore_da_Firenze"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Flavia_Auditore"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Giovanni_Auditore_da_Firenze"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Haytham_E._Kenway"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Linette_Hopkins"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Maria_Thorpe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Maud"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Mother_of_Desmond_Miles"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Renato_Auditore"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Sofia_Sartor"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Subject_17_Desmond_Miles"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Tessa_Stephenson-Oakley"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#William_Miles"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Altaïr_Ibn-La&apos;Ahad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Giovanni&apos;s_father_Auditore"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Kanieht:io"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Maria_de&apos;Mozzi_da_Firenze"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Ratonhnhaké:ton_Connor_Kenway"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Sef&apos;s_Daughter_(1)_Ibn-La&apos;Ahad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Sef&apos;s_wife_(Ibn-La&apos;Ahad)"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Sef_Ibn-La&apos;Ahad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Assassin"/>
+        <NamedIndividual IRI="#Umar_Ibn-La&apos;Ahad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#Umar_Ibn-La&apos;Ahad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#William&apos;s_Father_Miles"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Thing"/>
+        <NamedIndividual IRI="#William&apos;s_Mother_Miles"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Bernard_Kenway"/>
+        <NamedIndividual IRI="#Edward_Kenway"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Dominico_Auditore"/>
+        <NamedIndividual IRI="#Renato_Auditore"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Edward_Kenway"/>
+        <NamedIndividual IRI="#Haytham_E._Kenway"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#Edward_Kenway"/>
+        <NamedIndividual IRI="#Tessa_Stephenson-Oakley"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Ezio_Auditore_da_Firenze"/>
+        <NamedIndividual IRI="#Flavia_Auditore"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#Ezio_Auditore_da_Firenze"/>
+        <NamedIndividual IRI="#Sofia_Sartor"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Flavia_Auditore"/>
+        <NamedIndividual IRI="#William&apos;s_Father_Miles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Giovanni_Auditore_da_Firenze"/>
+        <NamedIndividual IRI="#Ezio_Auditore_da_Firenze"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#Giovanni_Auditore_da_Firenze"/>
+        <NamedIndividual IRI="#Maria_de&apos;Mozzi_da_Firenze"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Haytham_E._Kenway"/>
+        <NamedIndividual IRI="#Ratonhnhaké:ton_Connor_Kenway"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#Haytham_E._Kenway"/>
+        <NamedIndividual IRI="#Kanieht:io"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Linette_Hopkins"/>
+        <NamedIndividual IRI="#Edward_Kenway"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#Linette_Hopkins"/>
+        <NamedIndividual IRI="#Bernard_Kenway"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Maria_Thorpe"/>
+        <NamedIndividual IRI="#Sef_Ibn-La&apos;Ahad"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#Maria_Thorpe"/>
+        <NamedIndividual IRI="#Altaïr_Ibn-La&apos;Ahad"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Maud"/>
+        <NamedIndividual IRI="#Altaïr_Ibn-La&apos;Ahad"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Mother_of_Desmond_Miles"/>
+        <NamedIndividual IRI="#Subject_17_Desmond_Miles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#Mother_of_Desmond_Miles"/>
+        <NamedIndividual IRI="#William_Miles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Renato_Auditore"/>
+        <NamedIndividual IRI="#Giovanni&apos;s_father_Auditore"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Sofia_Sartor"/>
+        <NamedIndividual IRI="#Flavia_Auditore"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Tessa_Stephenson-Oakley"/>
+        <NamedIndividual IRI="#Haytham_E._Kenway"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#William_Miles"/>
+        <NamedIndividual IRI="#Subject_17_Desmond_Miles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Altaïr_Ibn-La&apos;Ahad"/>
+        <NamedIndividual IRI="#Sef_Ibn-La&apos;Ahad"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Giovanni&apos;s_father_Auditore"/>
+        <NamedIndividual IRI="#Giovanni_Auditore_da_Firenze"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Kanieht:io"/>
+        <NamedIndividual IRI="#Ratonhnhaké:ton_Connor_Kenway"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Maria_de&apos;Mozzi_da_Firenze"/>
+        <NamedIndividual IRI="#Ezio_Auditore_da_Firenze"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Ratonhnhaké:ton_Connor_Kenway"/>
+        <NamedIndividual IRI="#William&apos;s_Mother_Miles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Sef&apos;s_Daughter_(1)_Ibn-La&apos;Ahad"/>
+        <NamedIndividual IRI="#Mother_of_Desmond_Miles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Sef&apos;s_wife_(Ibn-La&apos;Ahad)"/>
+        <NamedIndividual IRI="#Sef&apos;s_Daughter_(1)_Ibn-La&apos;Ahad"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Sef_Ibn-La&apos;Ahad"/>
+        <NamedIndividual IRI="#Sef&apos;s_Daughter_(1)_Ibn-La&apos;Ahad"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#Sef_Ibn-La&apos;Ahad"/>
+        <NamedIndividual IRI="#Sef&apos;s_wife_(Ibn-La&apos;Ahad)"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#Umar_Ibn-La&apos;Ahad"/>
+        <NamedIndividual IRI="#Altaïr_Ibn-La&apos;Ahad"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#Umar_Ibn-La&apos;Ahad"/>
+        <NamedIndividual IRI="#Maud"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#William&apos;s_Father_Miles"/>
+        <NamedIndividual IRI="#William_Miles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#parent"/>
+        <NamedIndividual IRI="#William&apos;s_Mother_Miles"/>
+        <NamedIndividual IRI="#William_Miles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#spouse"/>
+        <NamedIndividual IRI="#William&apos;s_Mother_Miles"/>
+        <NamedIndividual IRI="#William&apos;s_Father_Miles"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Bernard_Kenway"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Dominico_Auditore"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Edward_Kenway"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Ezio_Auditore_da_Firenze"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Flavia_Auditore"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Giovanni_Auditore_da_Firenze"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Haytham_E._Kenway"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Linette_Hopkins"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Maria_Thorpe"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Maud"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Mother_of_Desmond_Miles"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Renato_Auditore"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Sofia_Sartor"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Subject_17_Desmond_Miles"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Tessa_Stephenson-Oakley"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#William_Miles"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Altaïr_Ibn-La&apos;Ahad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Giovanni&apos;s_father_Auditore"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Kanieht:io"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Maria_de&apos;Mozzi_da_Firenze"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Ratonhnhaké:ton_Connor_Kenway"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Sef&apos;s_Daughter_(1)_Ibn-La&apos;Ahad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#Sef&apos;s_wife_(Ibn-La&apos;Ahad)"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Sef_Ibn-La&apos;Ahad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#Umar_Ibn-La&apos;Ahad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#man"/>
+        <NamedIndividual IRI="#William&apos;s_Father_Miles"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#woman"/>
+        <NamedIndividual IRI="#William&apos;s_Mother_Miles"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#childOf"/>
+        <ObjectProperty IRI="#beDescendantOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#parent"/>
+        <ObjectProperty IRI="#beAncestorOf"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#beAncestorOf"/>
+        <ObjectProperty IRI="#beDescendantOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#childOf"/>
+        <ObjectProperty IRI="#parent"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#spouse"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#spouse"/>
+    </InverseFunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#spouse"/>
+    </SymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#childOf"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#parent"/>
+    </AsymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#beAncestorOf"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#beDescendantOf"/>
+    </TransitiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#childOf"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#parent"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#spouse"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#beAncestorOf"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#beDescendantOf"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#childOf"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#parent"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#spouse"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#beAncestorOf"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#beDescendantOf"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#childOf"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#parent"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#spouse"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#man"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#woman"/>
+        <Class abbreviatedIRI="owl:Thing"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#man"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#woman"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DisjointDataProperties>
+        <DataProperty IRI="#man"/>
+        <DataProperty IRI="#woman"/>
+    </DisjointDataProperties>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
