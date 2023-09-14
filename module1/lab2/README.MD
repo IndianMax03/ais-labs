@@ -51,6 +51,11 @@
 | <img alt="ex4.png" src="img/ex4.png"/> |     Является ли Maud женщиной      |
 | <img alt="ex5.png" src="img/ex5.png"/> |  Является ли William_Miles мамой   |
 
+## Для подготовки повторить:
+1) [syntax](http://protegeproject.github.io/protege/class-expression-syntax/)
+2) [manual](https://docs.google.com/document/d/1kKOom1gBV5uvji62Z0fhQpbhclNBNAPZIPZmjk-n-zU/edit)
+3) [videos](https://www.youtube.com/playlist?list=PLMDuaURn3ViYuD2HLtf0u4WTTGRFS-dIN)
+
 ## Вывод
 
 В результате работы я создал онтологию в Protege на основе базы знаний в Prolog путём отображения фактов, предикатов и отношений из Prolog в онтологию. Также я выполнил запросы в онтологию для обнаружения скрытых фактов.
