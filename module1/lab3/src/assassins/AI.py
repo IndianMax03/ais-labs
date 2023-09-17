@@ -77,7 +77,7 @@ class AI:
                 return False
             if not sub_play_hours[2].isdigit():
                 print(
-                    f"{self.WARNING}{self.emoji} Ой-ой-ой, {name}, кажется, количество сыгранных часов - не число! Попробуй снова!")
+                    f"{self.WARNING}{self.emoji} Ой-ой-ой, {name}, кажется, количество сыгранных часов - не целое число! Попробуй снова!")
                 return False
             play_hours = sub_play_hours[2]
             character = sub_character[3]
