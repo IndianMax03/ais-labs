@@ -239,4 +239,16 @@ def predict_class(neighbors):
 
 ## Приложения
 
-[Код]
+Google collab'ы по лабам:
+
+1. [Лабораторная №1 (Линейная регрессия)](https://colab.research.google.com/drive/1q-YBjzaADmJp-w60URF6toUQLcWCSSmK?usp=sharing)
+1. [Лабораторная №2 (Метод k-ближайших соседей)](https://colab.research.google.com/drive/1jXSCmuo7r0c5Hr2KRCQ3GVlvVvOvoZPJ?usp=sharing)
+1. [Лабораторная №3 (Деревья решений)](https://colab.research.google.com/drive/1ZgDt7-MIv5qg3vyd5BuCuXkNQ3nZkaLH?usp=sharing)
+1. [Лабораторная №4 (Логистическая регрессия)](https://colab.research.google.com/drive/1ubDFoAJ4ShbfrUqFBE9V30oNfVUzrK1i?usp=sharing)
+
+Либо на github:
+
+1. [Лабораторная №1 (Линейная регрессия)](https://github.com/IndianMax03/ais-labs/blob/6b29fd5744a91009fbe473b1f56972121f897687/module2/lab4/src/ais_lab_4.ipynb)
+1. [Лабораторная №2 (Метод k-ближайших соседей)](https://github.com/IndianMax03/ais-labs/blob/084084178e9d5afcbd3571a54b4e761b66fe9e1b/module2/lab5/src/ais_lab_5.ipynb)
+1. [Лабораторная №3 (Деревья решений)](https://github.com/IndianMax03/ais-labs/blob/86930df78639dc4767ca1165a62f39be2afcc3f7/module2/lab6/src/ais_lab_6.ipynb)
+1. [Лабораторная №4 (Логистическая регрессия)](https://github.com/IndianMax03/ais-labs/blob/ad73d3333846a098eca3631dba54f03f3266278c/module2/lab7/src/ais_lab_7.ipynb)
