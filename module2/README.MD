@@ -177,26 +177,188 @@ def predict_class(neighbors):
 
 ### Введение
 
-[Введение в тему лабораторной работы, описание задачи и целей.]
+#### Цель работы
+
+Реализация древа принятия решений
+
+#### Задачи работы
+
+- Отбор случайным образром sqrt(n) признаков
+- Реализация древа принятия решений без использования сторонних библиотек (кроме NumPy и Pandas)
+- Провести оценку реализованного алгоритма с использованием accuracy, precision и recall
+- Построить AUC-ROC и AUC-PR
 
 ### Описание метода
 
-[Краткое описание метода деревьев решений, его назначения и принципа работы.]
+Метод дерева принятия решений является одним из методов машинного обучения, который используется для прогнозирования или классификации данных. Его назначение заключается в том, чтобы создать модель, которая может предсказывать целевую переменную на основе входных признаков.
+
+Принцип работы метода дерева принятия решений заключается в построении дерева, где каждый узел представляет собой признак, каждое ребро - возможное значение этого признака, а каждый лист - прогноз или классификация. Для построения дерева используется алгоритм, который выбирает оптимальные признаки и значения для разделения данных на более чистые подгруппы.
 
 ### Псевдокод метода
 
-```css
-[Здесь представлен псевдокод алгоритма метода деревьев решений.]
+#### Класс дерева решений
 
+```python
+class TreeNode:
+
+    def __init__(self, left = None, right = None, class_name = None, feature = None, div_value = None):
+        self.left = left
+        self.right = right
+        self.class_name = class_name
+        self.feature = feature
+        self.div_value = div_value
+
+    def __str__(self):
+        return f'(left = {self.left}; right  = {self.right}; class_name = {self.class_name}; feature = {self.feature}; div_value = {self.div_value})'
+```
+
+#### Вычисление энтропии для определения чистоты подмножества
+
+```python
+def calculate_entropy(Y_values):
+    if len(Y_values) == 0:
+        return 0
+
+    p1 = np.mean(Y_values == Y_values[0])
+    p2 = 1 - p1
+
+    if (p1  == 1 or p2 == 1):
+        return 0
+
+    return -(p1 * math.log2(p1) + p2 * math.log2(p2))
+```
+
+#### Вычисление информационного выигрыша при разбиении по данному признаку X
+
+```python
+def calculate_gain(X, Y):
+    #  энтропия до разделения
+    before = calculate_entropy(Y.values)
+
+    #  находим уникальные значения признака и количество вхождений каждого уникального признака
+    values, occurrences = np.unique(X, return_counts=True)
+    total = len(Y.values)
+
+    #  массив энтропий для того, чтобы получить взвешанную энтропию (ВЭ потом будет использоваться для определения выгоды от разделения по данному признаку)
+    entropies = []
+    #  пробегаюсь по всем уникальным значениям признака
+    for i, value in enumerate(values):
+
+        #  вычисляю вероятность (количество объектов с таким признаком / общее количество объектов)
+        prob = occurrences[i] / total
+
+        #  все метки данного значения X
+        cur_labels = Y[X == value]
+
+        #  выщитываю энтропию меток полученных значений меток для данного уникального значения
+        tmp_entropy = prob * calculate_entropy(cur_labels.values)
+
+        #  добавляю в массив энтропий
+        entropies.append(tmp_entropy)
+
+    return before - sum(entropies)
+```
+
+#### Построение модели
+
+```python
+def build_nodes(X, Y, cur_depth, max_depth):
+    Y_values = Y.values
+
+    #  если все метки одинаковые, то энтропия == 0, значит нашли лист
+    if len(np.unique(Y_values)) == 1:
+        return TreeNode(class_name = Y_values[0])
+
+    #  если текущая длина превысила предельную, то опеределяем класс по принципу большинства
+    if (cur_depth >= max_depth):
+        labels = np.unique(Y_values)
+        label = Y_values[0]
+        l1_count = 0
+        for i in range(len(Y_values)):
+            if Y_values[i] == label:
+                l1_count += 1
+        l2_count = len(Y_values) - l1_count
+        return TreeNode(class_name = labels[0] if l1_count >= l2_count else labels[1])
+
+    max_gain = 0
+    final_feature_ind = None
+    final_div_value = None
+
+    # print(X)
+    #  для каждого признака признакам
+    for cur_column_ind in range(X.shape[1]):
+        #  рассматриваем возможность разделения по каждому уникальному значению
+        for div_value in np.unique(X.iloc[:, cur_column_ind]):
+            #  делим
+            left = X.iloc[:, cur_column_ind] < div_value
+            right = X.iloc[:, cur_column_ind] >= div_value
+
+            #  если нет смысла в разделении, пропускаем значение признака
+            if (sum(left) == 0 or sum(right) == 0):
+                continue
+
+            #  высчитываем выигрыш
+            cur_gain = calculate_gain(left, Y)
+            #  запоминаем
+            if cur_gain > max_gain:
+                max_gain = cur_gain
+                final_feature_ind = cur_column_ind
+                final_div_value = div_value
+
+    #  если выигрыша не обнаружено, поступаем как в случае с превышением глубины (большинство)
+    if (max_gain == 0 or final_feature_ind is None or final_div_value is None):
+        labels = np.unique(Y_values)
+        label = Y_values[0]
+        l1_count = 0
+        for i in range(len(Y_values)):
+            if Y_values[i] == label:
+                l1_count += 1
+        l2_count = len(Y_values) - l1_count
+        return TreeNode(class_name = labels[0] if l1_count >= l2_count else labels[1])
+
+    #  определяем индексы разделений
+    left_X_ind = X.iloc[:, final_feature_ind] < final_div_value
+    rigth_X_ind = X.iloc[:, final_feature_ind] >= final_div_value
+
+    #  строим левое и правое деревья
+    left_tree_node = build_nodes(X[left_X_ind], Y[left_X_ind], cur_depth + 1, max_depth)
+    right_tree_node = build_nodes(X[rigth_X_ind], Y[rigth_X_ind], cur_depth + 1, max_depth)
+
+    return TreeNode(left = left_tree_node,
+                    right = right_tree_node,
+                    feature = final_feature_ind,
+                    div_value = final_div_value)
 ```
 
 ### Результаты выполнения
 
-[Опишите полученные результаты после применения метода деревьев решений. Можете включить графики, численные значения и примеры.]
+В качестве результата выполнения получаем модель (root ноду), благодаря которой классифицируем тестовые объекты:
+
+```python
+def predict(X_object_values, root):
+    if root.class_name is not None:
+        return root.class_name
+
+    if (X_object_values[root.feature] < root.div_value):
+        return predict(X_object_values, root.left)
+    else:
+        return predict(X_object_values, root.right)
+```
 
 ### Примеры использования метода
 
-[Приведите примеры ситуаций, когда метод деревьев решений может быть полезен. Объясните, почему именно этот метод выбран.]
+#### Ограничения
+
+- Неустойчивость к изменениям данных (если тренировочные данные немного изменятся, придется заново перестраивать модель)
+- Имееет проблемы с классификацией в случае, если классы плохо разделимы или имеют сложную структуру
+- Склонность к созданию смещенных моделей при преобладании одного из классов
+- Склонность к переобучению (дерево слишком сильно подстраивается под обучающую выборку и плохо работает на тестовой)
+
+#### Тесткейсы
+
+- Экономика: прогнозирование тенденций рынка, принятие инвестиционных решений, анализ кредитного скоринга и проч.
+- Медицина: диагностика заболеваний, выбор оптимального лечения, прогнозирование результатов лечения и проч.
+- Маркетинг: сегментация потребителей, прогнозирование спроса на товары и проч.
 
 ## Лабораторная работа 4. Логистическая регрессия
 
